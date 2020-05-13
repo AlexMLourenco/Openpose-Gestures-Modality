@@ -12,7 +12,7 @@ import pandas as pd
 from tqdm import tqdm
 
 from scripts.format_json import json_join
-OPEN_POSE_DIR = "C:\\Users\\AlexandreLourenco\\Desktop\\openpose-1.5.1-binaries-win64-gpu-python-flir-3d_recommended\\openpose"
+OPEN_POSE_DIR = "C:\\Users\\manel\\Desktop\\openpose-1.5.1-binaries-win64-gpu-python-flir-3d_recommended\\openpose"
 
 def get_now():
     return datetime.datetime.now().strftime('%y-%m-%d_%H%M%S')
