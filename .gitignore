@@ -1,0 +1,8 @@
+images/**
+json/**
+logs/**
+
+.*
+!.gitignore
+.DS_Store
+
