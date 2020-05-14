@@ -6,3 +6,4 @@ logs/**
 !.gitignore
 .DS_Store
 
+.run_openpose.py
