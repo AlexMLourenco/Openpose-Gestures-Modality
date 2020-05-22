@@ -4,7 +4,7 @@ import pprint
 from dtaidistance import dtw
 from dtaidistance import dtw_visualisation as dtwvis
 import numpy as np
-
+from scipy.spatial.distance import euclidean
 
 #------------------------ Keypoints variation (x , y) --------------------""
 def get_keypoints(_array):
@@ -29,6 +29,7 @@ def get_distances(keypoints1, keypoints2):
     return distances
 
 #--------------------------- MAIN-------------------------------------#
+'''
 file_name = ".\\json\\" + sys.argv[1] + ".json"
 file2_name = ".\\json\\" + sys.argv[2] + ".json"
 
@@ -121,3 +122,4 @@ with open(file2_name) as json_file:
 
     path = dtw.warping_path(np.array(x1[5]), np.array(x2[5]))
     dtwvis.plot_warping(np.array(x1[5]), np.array(x2[5]), path, filename=name)
+'''
