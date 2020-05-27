@@ -18,11 +18,9 @@ def get_euclidian(points):
             for key in range(len(points[keypoint][frame]["x"])):
                 f0k0 = [points[keypoint][frame]["x"][key], points[keypoint][frame]["y"][key]]
                 d0.append(f0k0)
-                #print(frame)
                 fk[frame] = d0
                 
     print(fk)
-    print(len(d0))
 #--------------------------- MAIN-------------------------------------#
 file_name = "./json/" + sys.argv[1] + ".json"
 mypath = "./json/"
