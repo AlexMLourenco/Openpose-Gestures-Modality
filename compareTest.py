@@ -3,6 +3,8 @@ import json
 import pprint
 from dtaidistance import dtw
 from dtaidistance import dtw_visualisation as dtwvis
+from scipy.spatial.distance import euclidean
+from fastdtw import fastdtw
 import numpy as np
 from os import listdir
 from os.path import isfile, join
@@ -20,7 +22,12 @@ def get_euclidian(points):
                 d0.append(f0k0)
                 fk[frame] = d0
                 
-    print(fk)
+    x = np.array(fk)
+
+    #distance, path = fastdtw(x, y, dist=euclidian)
+    #print(distance)
+
+    print(x)
 #--------------------------- MAIN-------------------------------------#
 file_name = "./json/" + sys.argv[1] + ".json"
 mypath = "./json/"
