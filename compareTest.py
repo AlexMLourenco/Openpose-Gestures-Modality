@@ -10,22 +10,20 @@ from test import get_distances, get_keypoints
 
 #---------------------Euclidian--------------------------------#
 def get_euclidian(keypoints):
-
+    d0 = []
     for index in range(len(keypoints)):  
         for frame in keypoints[index]:
             for key in range(len(keypoints[index][frame]["x"])):
-                f0k0 = ([keypoints[index][frame]["x"][key], keypoints[index][frame]["y"][key]])
+                f0k0 = [keypoints[index][frame]["x"][key], keypoints[index][frame]["y"][key]]
                 
-                if frame == 0:
-                    if key == 0: 
-                        d0 = f0k0
-                    else: 
-                        d0.append(f0k0)
+                
+                d0.append(f0k0)
                 
     print(d0)
+    print(len(d0))
 #--------------------------- MAIN-------------------------------------#
-file_name = ".\\json\\" + sys.argv[1] + ".json"
-mypath = ".\\json\\"
+file_name = "./json/" + sys.argv[1] + ".json"
+mypath = "./json/"
 
 onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 onlyfiles.remove(sys.argv[1]+".json")
@@ -47,7 +45,7 @@ with open(file_name) as json_file:
     #print(keypoints_right_1)
      
 for f in onlyfiles:
-    with open(".\\json\\"+f) as json_file:
+    with open("./json/"+f) as json_file:
         data = json.load(json_file)
 
         hand_right = []
