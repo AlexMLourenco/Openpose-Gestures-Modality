@@ -8,6 +8,21 @@ from os import listdir
 from os.path import isfile, join
 from test import get_distances, get_keypoints
 
+#---------------------Euclidian--------------------------------#
+def get_euclidian(keypoints):
+
+    for index in range(len(keypoints)):  
+        for frame in keypoints[index]:
+            for key in range(len(keypoints[index][frame]["x"])):
+                f0k0 = ([keypoints[index][frame]["x"][key], keypoints[index][frame]["y"][key]])
+                
+                if frame == 0:
+                    if key == 0: 
+                        d0 = f0k0
+                    else: 
+                        d0.append(f0k0)
+                
+    print(d0)
 #--------------------------- MAIN-------------------------------------#
 file_name = ".\\json\\" + sys.argv[1] + ".json"
 mypath = ".\\json\\"
@@ -27,7 +42,9 @@ with open(file_name) as json_file:
 
     keypoints_right_1 = get_keypoints(hand_right)
 
-    print(keypoints_right_1)
+    get_euclidian(keypoints_right_1)
+
+    #print(keypoints_right_1)
      
 for f in onlyfiles:
     with open(".\\json\\"+f) as json_file:
@@ -40,8 +57,8 @@ for f in onlyfiles:
             identifier = data["id"]
 
         keypoints_right_2 = get_keypoints(hand_right)
-        print(label)
-        print(identifier)
+        #print(label)
+        #print(identifier)
 
         dist_right = get_distances(keypoints_right_1,keypoints_right_2)
-        print(dist_right)
+        #print(dist_right)
