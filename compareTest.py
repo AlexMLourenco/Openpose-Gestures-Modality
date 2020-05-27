@@ -9,17 +9,19 @@ from os.path import isfile, join
 from test import get_distances, get_keypoints
 
 #---------------------Euclidian--------------------------------#
-def get_euclidian(keypoints):
-    d0 = []
-    for index in range(len(keypoints)):  
-        for frame in keypoints[index]:
-            for key in range(len(keypoints[index][frame]["x"])):
-                f0k0 = [keypoints[index][frame]["x"][key], keypoints[index][frame]["y"][key]]
-                
-                
+def get_euclidian(points):
+    
+    fk = {}
+    for keypoint in range(len(points)):  
+        for frame in points[keypoint]:
+            d0 = []
+            for key in range(len(points[keypoint][frame]["x"])):
+                f0k0 = [points[keypoint][frame]["x"][key], points[keypoint][frame]["y"][key]]
                 d0.append(f0k0)
+                #print(frame)
+                fk[frame] = d0
                 
-    print(d0)
+    print(fk)
     print(len(d0))
 #--------------------------- MAIN-------------------------------------#
 file_name = "./json/" + sys.argv[1] + ".json"
