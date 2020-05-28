@@ -18,9 +18,10 @@ def get_euclidian(points):
         for frame in points[keypoint]:
             d0 = []
             for key in range(len(points[keypoint][frame]["x"])):
-                f0k0 = [points[keypoint][frame]["x"][key], points[keypoint][frame]["y"][key]]
-                d0.append(f0k0)
-                fk[frame] = d0
+                if(points[keypoint][frame]["x"][key] != 0 or points[keypoint][frame]["x"][key] != 0):
+                    f0k0 = [points[keypoint][frame]["x"][key], points[keypoint][frame]["y"][key]]
+                    d0.append(f0k0)
+                    fk[frame] = d0
                 
     x = np.array(fk)
 
